@@ -1,0 +1,115 @@
+@import "../../styles/variables.css";
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 70%;
+  height: 60vh;
+  padding: 20px;
+  margin: 10% 0 0 10%;
+
+}
+
+/* Cartão base */
+.card {
+  background-color: var(--text-light);
+  border-radius: 12px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+/* EFEITO ZEBRADO */
+.card:nth-child(even) {
+  background: #f9fafb;
+}
+
+/* EFEITO HOVER */
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* BARRINHA COLORIDA (DEGRADÊ) */
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  border-radius: 12px 0 0 12px;
+  background: linear-gradient(to bottom, #ccc, #999);
+}
+
+/* CORES PERSONALIZADAS POR STATUS */
+.card.remarcado::before {
+  background: linear-gradient(to bottom, #3b82f6, #1e3a8a); /* azul */
+}
+
+.card.aprovado::before {
+  background: linear-gradient(to bottom, #22c55e, #15803d); /* verde */
+}
+
+.card.cancelado::before {
+  background: linear-gradient(to bottom, #ef4444, #991b1b); /* vermelho */
+}
+
+.card.outros::before {
+  background: linear-gradient(to bottom, #facc15, #ca8a04); /* amarelo */
+}
+
+
+/* Container interno */
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Nome do cliente */
+.info h4 {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+}
+
+/* Horário centralizado */
+.info p {
+  flex: 1;
+  text-align: center;
+  color: #555;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Status à direita */
+.status {
+  flex: 1;
+  text-align: right;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: capitalize;
+}
+
+/* Cores para o texto do status */
+.card.remarcado .status {
+  color: #1e90ff;
+}
+.card.aprovado .status {
+  color: #28a745;
+}
+.card.cancelado .status {
+  color: #dc3545;
+}
+.card.outros .status {
+  color: #facc15;
+}

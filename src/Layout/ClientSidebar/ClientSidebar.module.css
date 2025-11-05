@@ -1,0 +1,79 @@
+.sidebar {
+  background: var(--background-color);
+  color: #0bd3d3;
+  height: 95vh;
+  width: 90vw;
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: width 0.3s ease;
+  box-shadow: 2px 0 8px rgba(5, 226, 255, 0.644);
+  z-index: 100;
+}
+
+.expanded {
+  width: 250px;
+}
+
+.collapsed {
+  width: 80px;
+}
+
+.topSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+   font-size: 2rem;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  color: var(--success-color);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.toggleButton:hover {
+  transform: scale(1.1);
+}
+.sideNav {
+   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 8px;
+  padding: 0 0.8rem;
+}
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--success-color);
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.navItem:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.active {
+  background: var(--success-color);
+  color: white;
+}

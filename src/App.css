@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+
+body{
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+/* Opcional: Transição para um efeito visual mais suave */
+    transition: background-color 0.3s ease;
+}
+
+/* Definição do Fundo Escuro (Só quando a classe é ativada) */
+body.bg-dark-client {
+    /* Use a cor escura que você deseja no body da ClientPage */
+    background-color: #1e293b;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+}
+

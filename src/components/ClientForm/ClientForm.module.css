@@ -1,0 +1,208 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45); /* fundo levemente escuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(3px);
+}
+
+.modal {
+  background: #d0d7eb;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  width: 90%;
+  max-width: 420px;
+  max-height: 90vh; /* limite de altura */
+  overflow-y: auto; /* rolagem interna */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scrollbar-width: thin;
+}
+
+.modal::-webkit-scrollbar {
+  width: 6px;
+}
+.modal::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.modal h3 {
+  color: var(--color-dark-bg);
+  font-size: 22px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form input,
+.form select {
+  padding: 10px;
+  border: 1px solid #a9abad;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--color-dark-bg);
+  background-color: #e4e8ed;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form input:focus,
+.form select:focus {
+  outline: none;
+  border-color: var(--color-primary-cyan);
+  box-shadow: 0 0 0 2px rgba(0, 179, 224, 0.2);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.submitBtn,
+.cancelBtn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.submitBtn {
+  background-color: var(--color-primary-cyan);
+  color: var(--color-dark-bg);
+  border: none;
+}
+
+.submitBtn:hover {
+  background-color: #00b3e0;
+}
+
+.cancelBtn {
+  background-color: transparent;
+  color: var(--color-text-gray);
+  border: 1px solid var(--color-text-gray);
+}
+
+.cancelBtn:hover {
+  background-color: var(--color-cancel-button-bg-hover);
+  color: #e60101;
+  border-color: #555;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--input-border);
+  cursor: pointer;
+}
+.closeButton:hover {
+  color: var(--danger-color);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.formGroup > label {
+  font-weight: 600;
+  color: var(--color-dark-bg);
+  font-size: 1rem;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+  font-size: 0.95rem;
+  color: var(--color-text-gray);
+}
+
+.checkboxLabel:hover {
+  background-color: #f0f4f8;
+}
+
+.checkboxLabel input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: all 0.2s;
+}
+
+.checkboxLabel input[type="checkbox"]:checked {
+  background-color: var(--color-primary-cyan);
+  border-color: var(--color-primary-cyan);
+}
+
+.checkboxLabel input[type="checkbox"]:checked::before {
+  content: "✓";
+  font-size: 14px;
+  color: var(--color-dark-bg);
+}
+
+.form input[name="valor"][readonly] {
+  background-color: #eceff1;
+  font-weight: 600;
+  color: var(--color-primary-cyan);
+  border-color: #d1d5db;
+}
+/* Animação suave do modal */
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Aplique as animações */
+.overlay {
+  animation: fadeInOverlay 0.3s ease forwards;
+}
+
+.modal {
+  animation: fadeInModal 0.3s ease forwards;
+}

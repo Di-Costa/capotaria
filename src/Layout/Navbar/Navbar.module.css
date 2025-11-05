@@ -1,0 +1,35 @@
+.navbar {
+  background: #1a1027;
+  border-bottom: 4px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  height: 70px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  transition: margin-left 0.3s ease;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon {
+  cursor: pointer;
+  color: #d4d4d8;
+  transition: color 0.2s ease;
+}
+
+.icon:hover {
+  color: #a855f7;
+}
+.user {
+  font-weight: 500;
+  font-size: 20px;
+}

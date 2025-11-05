@@ -1,0 +1,97 @@
+
+@import '../../styles/variables.css';
+@import '../../styles/links.module.css';
+
+.form_control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form_control label {
+  color: #036060;
+  font-weight: 400;
+  font-size: 1.25rem;
+  margin: 0 0 10px 20px;
+}
+
+/* --- INPUT COM BORDA NEON ANIMADA --- */
+.form_control input {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  background: rgba(166, 168, 171, 0.19);
+  border: none;
+  outline: none;
+  padding: 0.8rem 1rem;
+  font-size: 1.15rem;
+  border-radius: 50px;
+
+  /* Fundo interno com leve brilho */
+  box-shadow: inset 0 0 8px rgba(0,255,255,0.3);
+}
+
+/* Borda neon animada */
+.form_control input::before,
+.form_control input::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  pointer-events: none;
+}
+
+/* Glow fixo */
+.form_control input::before {
+  border: 2px solid rgba(0,255,255,0.4);
+  box-shadow: 0 0 8px rgba(0,255,255,0.7);
+}
+
+/* Linha neon passando */
+.form_control input::after {
+  border: 2px solid transparent;
+  border-top-color: #00eaff;
+  border-right-color: #00eaff;
+  border-radius: 50px;
+  animation: neonRun 2s linear infinite;
+}
+
+/* Keyframes da linha neon */
+@keyframes neonRun {
+  0% {
+    clip-path: inset(0 100% 100% 0);
+  }
+  25% {
+    clip-path: inset(0 0 100% 0);
+  }
+  50% {
+    clip-path: inset(0 0 0 100%);
+  }
+  75% {
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 100% 100% 0);
+  }
+}
+
+/* Hover extra glow */
+.form_control input:hover {
+  box-shadow: 0 0 12px #00eaff;
+}
+
+/* Foco mais intenso */
+.form_control input:focus {
+  box-shadow: 0 0 18px #00eaff, inset 0 0 12px #00eaff;
+}
+
+
+.form_control input::placeholder {
+  color: #c1c5cb9d;
+}
+
+.form_control input:focus {
+  border-color: var(--success-color);
+  box-shadow: 0 0 6px var(--success-color);
+}

@@ -1,0 +1,183 @@
+
+.container {
+    display: flex;
+    height: 95vh;
+    width: 90vw;
+    border-radius: 30px;
+    margin: 0;
+    box-shadow: 0 0 15px rgba(0, 207, 255, 0.4);
+    background-color: var(--background-color);
+}
+.mainContent {
+    flex: 1;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-light);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.btnPrimary {
+  background-color:  var(--glow-cyan-soft);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.2s;
+}
+
+.btnPrimary:hover {
+  background-color: var( --color-success);
+  color: var(--color);
+}
+
+.btnSecondary {
+  background-color: var(--text-light);
+  color: var(--color);
+  border: var(--border);
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.2s;
+}
+
+.btnSecondary:hover {
+   background-color: transparent;
+   color: var( --color-primary-cyan);
+}
+
+.searchInput {
+    border: var( --color-hover-gray) 1px solid;
+    background-color: transparent;
+    color: var(--text-light);
+    border-radius: 8px;
+    padding: 10px 12px;
+    width: 150px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+.searchInput:focus {
+    border-color: var(--color-primary-cyan);
+    outline: none;
+}
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--color-dark-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.table th {
+    background: var(--color-table-header);
+    color: var(--text-light);
+    padding: 14px 15px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-bottom: 3px solid var(--color-primary-cyan);
+}
+
+.table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--color-table-header);
+    color: var(--text-light);
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.table tbody tr:hover {
+    background-color: var(--color-hover-gray);
+    transition: background-color 0.2s;
+}
+.itens {
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+.actionsCell {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.editBtn,
+.deleteBtn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 5px;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+}
+
+.editBtn {
+    color: var(--color-primary-cyan);
+}
+
+.deleteBtn {
+    color: var(--color-danger-red);
+}
+
+.editBtn:hover {
+    color: var(--color-dark-bg);
+    background-color: var(--color-primary-cyan);
+}
+
+.deleteBtn:hover {
+    color: var(--text-light);
+    background-color: var(--color-danger-red);
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    color: var(--color-text-gray);
+}
+
+.pagination button {
+    background: transparent;
+    border: 1px solid var(--color-text-gray);
+    color: var(--color-text-gray);
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pagination button:hover {
+    background: var(--color-primary-cyan);
+    color: var(--color-dark-bg);
+    border-color: var(--color-primary-cyan);
+}

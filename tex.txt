@@ -1,0 +1,144 @@
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import styles from "./AdminSidebar.module.css";
+
+import {
+  PieChart,
+  CalendarDays,
+  Users,
+  FlaskConical,
+  ClipboardList,
+  Settings,
+} from "lucide-react";
+
+export default function Sidebar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const toggleSidebar = () => setIsOpen((prev) => !prev);
+
+  const menuItems = [
+    { path: "/", label: "Dashboard", icon: PieChart },
+    { path: "/appointments", label: "Agendamentos", icon: CalendarDays },
+    { path: "/clients", label: "ClientList", icon: Users },
+    { path: "/services", label: "Serviços", icon: FlaskConical },
+    { path: "/reports", label: "Relatórios", icon: ClipboardList },
+    { path: "/settings", label: "Configurações", icon: Settings },
+  ];
+
+  const isActive = (path) => location.pathname === path;
+
+  return (
+    <aside
+      className={`${styles.sidebar} ${
+        isOpen ? styles.expanded : styles.collapsed
+      }`}
+    >
+      {/* Logo e botão de toggle */}
+       <div className={styles.logo}>
+         <span className={styles.circle}></span>
+      </div>
+
+      {/* Navegação */}
+      {menuItems.map((item, index) => {
+  const Icon = item.icon;
+  return (
+    <Link to={item.path} className={styles.menuItem}>
+          <span className={styles.icon}>
+   <Icon size={22}/>
+   </span>
+   <span className={styles.tooltip}>{item.label}</span>
+</Link>
+
+  );
+})}
+    </aside>
+  );
+}
+
+
+.sidebar {
+    width: 60px; /* Largura Fixo para o modo ícones */
+    height: 100vh;
+    background-color: #2c3e50;
+    padding-top: 10px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    position: fixed;
+    z-index: 100;
+}
+
+
+.menu {
+  list-style: none;
+  width: 100%;
+  margin-top: 30px;
+  padding: 0;
+}
+
+/* Itens de Menu */
+.menuItem {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    cursor: pointer;
+    color: #ecf0f1;
+    font-size: 20px;
+
+    /* ESSENCIAL: Permite posicionar o Tooltip ABSOLUTAMENTE dentro deste item */
+    position: relative;
+}
+
+.menuItem:hover {
+    background-color: #34495e; /* Efeito de destaque ao passar o mouse */
+}
+
+/* Estilo do Ícone */
+.icon {
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Centraliza o ícone na largura de 60px do sidebar */
+}
+
+/* ------------------ IMPLEMENTAÇÃO DO TOOLTIP ------------------ */
+
+.tooltip {
+    /* 1. POSICIONAMENTO */
+    position: absolute;
+    left: calc(100% + 15px); /* Posiciona FORA da sidebar (60px) + 15px de espaço */
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente no item */
+
+    /* 2. APARÊNCIA */
+    background-color: #34495e;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    white-space: nowrap; /* Impede que o texto quebre linha */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
+    /* 3. ESCONDER POR PADRÃO */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s; /* Adiciona transição suave */
+    pointer-events: none; /* Garante que o tooltip não atrapalhe o mouse */
+}
+
+/* 4. MOSTRAR NO HOVER */
+.menuItem:hover .tooltip {
+    opacity: 1; /* Torna totalmente visível */
+    visibility: visible;
+}
+
+/* (Se você ainda tiver a logo, ajuste o estilo aqui) */
+.logo {
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ecf0f1;
+}

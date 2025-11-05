@@ -1,0 +1,26 @@
+:root {
+
+  /* Tema Glass Moderno */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --glow-cyan: #18e0ff;
+  --glow-cyan-soft: rgba(24, 224, 255, 0.6);
+
+  /* Tema Cyberpunk (futuro toggle) */
+  --neon-magenta: #ff00e6;
+  --neon-cyan: #00f6ff;
+
+  --color: #050707;
+  --primary: #18a3b7;
+  --background-color: #141D26;
+  --color-dark-bg: #1A202C;
+  --color-table-header: #2D3748;
+  --color-hover-gray: #334455;
+  --color-success: #1670d6;
+  --color-primary-cyan: #00CFFF;
+   --text-light: #e5edf6;
+  --color-text-gray: #A0AEC0;
+  --color-danger-red: #E53935;
+  --color-warning-orange: #80010A;
+
+}

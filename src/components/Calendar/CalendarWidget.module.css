@@ -1,0 +1,132 @@
+@import '../../styles/variables.css';
+
+.container {
+  background: var(--secondary-color, #241233);
+  padding: 20px;
+ /* border-top-left-radius: 30px;
+  border-bottom-left-radius: 15px;*/
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 80px;
+}
+.calendar {
+  background: transparent;
+  border: none;
+  width: 100%;
+  color: #c3aae7;
+   height: 40vh;
+}
+.calendar .react-calendar__navigation {
+  background: transparent;
+  border: none;
+  margin-bottom: 10px;
+}
+.calendar .react-calendar__navigation button {
+  min-width: 40px; /* Reduz a largura mínima padrão */
+  background: transparent;
+  color: #22c55e;
+  font-size: 24px;
+}
+
+.calendar .react-calendar__navigation__label {
+    font-weight: 600;
+    color: #c3aae7;
+}
+
+.calendar .react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+  font-weight: bold;
+  color: #c3aae7 !important;
+}
+
+/* Dia que foi clicado/selecionado no calendário (diferente do .today) */
+.calendar .react-calendar__tile--active,
+.calendar .react-calendar__tile--hasActive:enabled:hover {
+  background: #9333ea !important; /* Cor de seleção */
+  color: #fff !important;
+}
+.title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #22c55e;
+}
+/* Estiliza todos os dias como bolinhas */
+.calendar button {
+  border-radius: 50% !important;
+  width: 38px;
+  height: 38px;
+  transition: all 0.2s ease;
+  color: #22c55e;
+  background: transparent;
+}
+
+.calendar button:hover {
+  background: #9333ea;
+  color: #fff;
+}
+
+/* Dia atual */
+.today {
+  background: #22c55e !important;
+  color: #fff !important;
+}
+
+/* Se quiser marcar dias bloqueados depois */
+.booked {
+  background: #888 !important;
+  color: #ccc !important;
+  cursor: not-allowed;
+}
+
+/* Sessão de horários */
+.timeSection {
+  color: #22c55e;
+}
+.timeButtons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.timeButton {
+  background: #166534;
+  border: none;
+  color: #d1fae5;
+  padding: 10px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
+  font-size: 0.9rem;
+}
+
+.timeButton:hover {
+  background: #15803d;
+  color: #fff;
+}
+
+/* <<< NOVO: Força visual para ocupados */
+.occupied {
+  background: #6b7280 !important; /* cinza */
+  color: #9ca3af !important;
+  text-decoration: line-through;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* <<< NOVO: Horário selecionado (ativo) */
+.selectedTime {
+  background: #22c55e !important;
+  color: #fff !important;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+}
+.hasAppointment {
+  background: #9333ea !important; /* roxo suave */
+  color: #fff !important;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(147, 51, 234, 0.5);
+}
